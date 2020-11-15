@@ -4,6 +4,7 @@ const booksController = require("../controllers/booksController");
 const db = require("../models/bookModel");
 
 router.get("/books", (req, res) => {
+  console.log("/books hit");
   axios
     .get("https://www.googleapis.com/books/v1/volumes", { parms: req.query })
     .then(({ data: { items } }) => res.json(items))
@@ -15,6 +16,7 @@ router
   .route("/bookshelf")
   .get(booksController.findAll)
   .post(booksController.create);
+console.log("/bookshelf hit");
 
 // Matches with "/api/books/:id"
 router
@@ -22,5 +24,7 @@ router
   .get(booksController.findById)
   .put(booksController.update)
   .delete(booksController.remove);
+
+console.log("/bookshelf/:id hit");
 
 module.exports = router;
