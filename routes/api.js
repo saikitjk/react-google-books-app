@@ -1,6 +1,6 @@
 const axios = require("axios");
 const router = require("express").Router();
-const bookController = require("../controllers/booksController");
+const booksController = require("../controllers/booksController");
 const db = require("../models/bookModel");
 
 router.get("/books", (req, res) => {
@@ -12,13 +12,13 @@ router.get("/books", (req, res) => {
 
 // Matches with "/api/books"
 router
-  .route("/bookShelf")
+  .route("/bookshelf")
   .get(booksController.findAll)
   .post(booksController.create);
 
 // Matches with "/api/books/:id"
 router
-  .route("/bookShelf/:id")
+  .route("/bookshelf/:id")
   .get(booksController.findById)
   .put(booksController.update)
   .delete(booksController.remove);
