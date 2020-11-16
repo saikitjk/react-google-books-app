@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BookList, BookListItem } from "../components/BookList";
+//import { BookList, BookListItem } from "../components/BookList";
 import API from "../utils/API";
 
 class Home extends Component {
