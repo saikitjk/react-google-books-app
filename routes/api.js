@@ -1,7 +1,7 @@
 const axios = require("axios");
 const router = require("express").Router();
-const booksController = require("../controllers/booksController");
-const db = require("../models/bookModel");
+const booksController = require("../controllers/booksController.js");
+const db = require("../models/bookModel.js");
 
 router.get("/books", (req, res) => {
   console.log("/books hit");
