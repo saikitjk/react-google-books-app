@@ -1,5 +1,19 @@
-import React from "react";
+import React, { Component } from "react";
+import { BookList, BookListItem } from "../components/BookList";
+import API from "../utils/API";
 
-export default function Home() {
-  return <div>Home</div>;
+class Home extends Component {
+  state = {
+    books: [],
+    bookSearch: "",
+    bookShelf: [],
+    screenWidth: window.innerWidth,
+    searched: "",
+  };
+
+  render() {
+    return <div className="container booklist_container"></div>;
+  }
 }
+
+export default Home;
