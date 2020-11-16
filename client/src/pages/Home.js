@@ -72,8 +72,8 @@ class Home extends Component {
   render() {
     return (
       <div className="container booklist_container">
-        <div className="row">
-          <div className="col">
+        <div className="row searchRow">
+          <div className="col searchCol">
             <h4>Book Search</h4>
 
             <form>
@@ -96,6 +96,42 @@ class Home extends Component {
                 </button>
               </div>
             </form>
+          </div>
+        </div>
+        <div className="row resultRow">
+          <div className="col resultCol">
+            {this.state.searched === "" ? (
+              <h4>Results</h4>
+            ) : (
+              <h4>Results for {this.state.searched}</h4>
+            )}
+            {!this.state.books.length ? (
+              <h6 className="text-center">No books to display currently</h6>
+            ) : (
+              <BookList>
+                {this.state.books.map((book) => {
+                  return (
+                    <BookListItem
+                      key={book.volumeInfo.infoLink}
+                      id={book.id}
+                      title={book.volumeInfo.title || "Title Unavailable"}
+                      authors={book.volumeInfo.authors || ["Unknown Author"]}
+                      description={
+                        book.volumeInfo.description ||
+                        "No description available"
+                      }
+                      thumbnail={
+                        book.volumeInfo.imageLinks
+                          ? book.volumeInfo.imageLinks.smallThumbnail
+                          : "img/placeholder.png"
+                      }
+                      infoLink={book.volumeInfo.infoLink}
+                      saved={this.checkIfSaved(book.id)}
+                    />
+                  );
+                })}
+              </BookList>
+            )}
           </div>
         </div>
       </div>
