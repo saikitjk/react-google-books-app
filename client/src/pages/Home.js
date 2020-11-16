@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-//import { BookList, BookListItem } from "../components/BookList";
+import { BookList, BookListItem } from "../components/BookList";
 import API from "../utils/API";
 
 class Home extends Component {
@@ -49,8 +49,57 @@ class Home extends Component {
       .catch((err) => console.log(err));
   };
 
+  handleSave = (
+    event,
+    id,
+    title,
+    authors,
+    description,
+    infoLink,
+    thumbnail
+  ) => {
+    event.preventDefault();
+    API.saveBookShelf({
+      id,
+      title,
+      authors,
+      description,
+      infoLink,
+      thumbnail,
+    }).then((res) => this.loadBookShelf());
+  };
+
   render() {
-    return <div className="container booklist_container"></div>;
+    return (
+      <div className="container booklist_container">
+        <div className="row">
+          <div className="col">
+            <h4>Book Search</h4>
+
+            <form>
+              <div className="form-group">
+                <input
+                  type="text"
+                  className="form-control"
+                  id="bookSearch"
+                  name="bookSearch"
+                  value={this.state.bookSearch}
+                  onChange={this.handleInputChange}
+                />
+
+                <button
+                  className="btn btn-outline-secondary"
+                  type="button"
+                  onClick={this.handleFormSubmit}
+                >
+                  Search
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    );
   }
 }
 
