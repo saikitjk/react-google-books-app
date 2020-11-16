@@ -29,6 +29,26 @@ class Home extends Component {
     });
   };
 
+  handleFormSubmit = (event) => {
+    event.preventDefault();
+    this.setState({
+      searched: this.state.bookSearch,
+      bookSearch: "",
+    });
+    API.getBooks(this.state.bookSearch)
+      .then((res) =>
+        this.setState({ books: res.data }, () => console.log(res.data))
+      )
+      .catch((err) => console.log(err));
+  };
+
+  deleteBooks = (event, id) => {
+    event.preventDefault();
+    API.deleteBooks(id)
+      .then((res) => this.loadBookShelf())
+      .catch((err) => console.log(err));
+  };
+
   render() {
     return <div className="container booklist_container"></div>;
   }
