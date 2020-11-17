@@ -3,13 +3,15 @@ const router = require("express").Router();
 const booksController = require("../controllers/booksController.js");
 const db = require("../models/bookModel.js");
 
-router.get("/books", (req, res) => {
-  console.log("/books hit");
-  axios
-    .get("https://www.googleapis.com/books/v1/volumes", { parms: req.query })
-    .then(({ data: { items } }) => res.json(items))
-    .catch((err) => res.status(400).json(err));
-});
+// router.get("/books", (req, res) => {
+//   axios
+//     .get("https://www.googleapis.com/books/v1/volumes", { parms: req.query })
+//     .then(({ data: { items } }) => res.json(items))
+//     .catch((err) => res.status(422).json(err));
+// });
+
+// router.route("/books").get(booksController.findAll).post(booksController.create);
+// console.log("/books hit");
 
 // Matches with "/api/books"
 router

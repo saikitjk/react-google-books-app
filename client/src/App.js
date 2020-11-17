@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./pages/Home";
@@ -14,7 +14,7 @@ function App() {
       </div>
       <div className="container app_container">
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/books" component={Home} />
           <Route exact path="/bookshelf" component={Bookshelf} />
         </Switch>
       </div>
