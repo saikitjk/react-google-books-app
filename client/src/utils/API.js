@@ -2,8 +2,8 @@ import axios from "axios";
 require("dotenv").config();
 
 export default {
-  getBooks: function (query) {
-    return axios.get("/books", { params: { q: query } });
+  getBooks: function () {
+    return axios.get("/books");
   },
 
   searchBooks: function (query) {
@@ -28,14 +28,14 @@ export default {
   },
 
   getBookShelf: function () {
-    return axios.get("/bookshelf");
+    return axios.get("/api/bookshelf");
   },
 
   saveBookShelf: function (bookData) {
-    return axios.post("/bookshelf", bookData);
+    return axios.post("/api/bookshelf", bookData);
   },
 
   deleteBooks: function (id) {
-    return axios.delete(`/bookshelf/${id}`);
+    return axios.delete(`/api/bookshelf/${id}`);
   },
 };

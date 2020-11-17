@@ -39,7 +39,7 @@ function BookList(props) {
               <br></br>
               <div className="row buttonRow">
                 <div className="col">
-                  {props.caller === "search" ? (
+                  {props.identifier === "search" ? (
                     <div className="row">
                       <div className="col">
                         <button

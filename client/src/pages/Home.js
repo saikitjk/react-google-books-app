@@ -71,6 +71,7 @@ class Home extends Component {
             <BookList
               books={this.state.bookResults}
               onBookSave={this.saveBookShelf}
+              identifier="search"
             />
           </div>
         </div>
