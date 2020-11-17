@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 
-class SearchBox extends Component {
+class SearchBar extends Component {
   state = {
     query: "",
   };
 
-  handleOnChange = (event) => {
+  handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({
       [name]: value,
@@ -20,25 +20,33 @@ class SearchBox extends Component {
 
   render() {
     return (
-      <div className="row">
-        <form className="col s12" onSubmit={this.handleSubmit}>
-          <div className="row">
-            <div className="input-field col s12">
-              <input
-                id="input_text"
-                type="text"
-                data-length="80"
-                name="query"
-                onChange={this.handleChange}
-                value={this.state.query}
-              />
-              <label htmlFor="input_text">Search:</label>
+      <form className="col s12" onSubmit={this.handleSubmit}>
+        <div className="row">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <button
+                class="btn btn-outline-secondary"
+                type="button"
+                onClick={this.handleSubmit}
+              >
+                Search
+              </button>
             </div>
+            <input
+              name="query"
+              onChange={this.handleChange}
+              value={this.state.query}
+              type="text"
+              class="form-control"
+              placeholder=""
+              aria-label=""
+              aria-describedby="basic-addon1"
+            ></input>
           </div>
-        </form>
-      </div>
+        </div>
+      </form>
     );
   }
 }
 
-export default SearchBox;
+export default SearchBar;

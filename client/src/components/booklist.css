@@ -1,0 +1,20 @@
+.defaultMsg {
+  text-align: center;
+}
+
+.bookRow {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  width: 100%;
+}
+
+.buttonRow {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  width: 100%;
+}
+
+.desRow {
+  padding: 20px;
+  width: 100%;
+}

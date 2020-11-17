@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import BookList from "../components/BookList";
-import BookListItem from "../components/BookListItem";
-import searchBar from "../components/SearchBar";
+import "./home.css";
+import SearchBar from "../components/SearchBar";
 import API from "../utils/API";
 
 class Home extends Component {
@@ -60,14 +60,21 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="container booklist_container">
+      <>
         <div className="row searchRow">
           <div className="col searchCol">
-            <h4>Book Search</h4>
-            <searchBar />
+            <SearchBar onSubmit={this.getBooks} value={this.state.query} />
           </div>
         </div>
-      </div>
+        <div className="row resultRow">
+          <div className="col resultCol">
+            <BookList
+              books={this.state.bookResults}
+              onBookSave={this.saveBookShelf}
+            />
+          </div>
+        </div>
+      </>
     );
   }
 }

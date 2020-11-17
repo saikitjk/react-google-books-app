@@ -10,8 +10,11 @@ const db = require("../models/bookModel.js");
 //     .catch((err) => res.status(422).json(err));
 // });
 
-// router.route("/books").get(booksController.findAll).post(booksController.create);
-// console.log("/books hit");
+router
+  .route("/books")
+  .get(booksController.findAll)
+  .post(booksController.create);
+console.log("/books hit");
 
 // Matches with "/api/books"
 router
