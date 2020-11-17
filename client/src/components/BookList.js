@@ -1,5 +1,5 @@
 import React from "react";
-
+import CheckSaved from "../pages/CheckSaved";
 import "./booklist.css";
 
 function bookInfo(bookURL) {
@@ -33,6 +33,7 @@ function BookList(props) {
 
               <br></br>
               <div className="row desRow">
+                <div className="row desTitle">Description:</div>
                 <span> {book.volumeInfo.description} </span>
               </div>
               <br></br>
@@ -49,9 +50,12 @@ function BookList(props) {
                           <span>Save Book</span>
                         </button>
                       </div>
-                      <div className="col" id="checkmark"></div>
-                      <div className="col" id="msgText">
+                      <div className="col checksaved"></div>
+                      <div className="col msgText">
                         {book.saved ? "Book Saved" : ""}
+                      </div>
+                      <div className="col">
+                        <CheckSaved rendered={book.saved} />
                       </div>
                     </div>
                   ) : (

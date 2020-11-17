@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./pages/Home";
+import NavBar from "./components/NavBar";
 
 import "./App.css";
 import Bookshelf from "./pages/Bookshelf";
@@ -11,6 +12,9 @@ function App() {
     <Router>
       <div className="header">
         <Header />
+      </div>
+      <div className="navbar">
+        <NavBar />
       </div>
       <div className="container app_container">
         <Switch>
